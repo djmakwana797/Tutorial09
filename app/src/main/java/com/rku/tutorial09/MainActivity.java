@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -48,5 +51,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void writeFiles(View view) {
+        try{
+            FileOutputStream fOut = openFileOutput(FILE_INTERNAL, MODE_PRIVATE);
+            String data = edtTextData.getText().toString();
+            fOut.write(data.getBytes());
+            fOut.close();
+            edtTextData.setText("");
+            Toast.makeText(this, "Stored data Successfully.", Toast.LENGTH_SHORT).show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
