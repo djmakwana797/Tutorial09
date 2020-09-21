@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -48,6 +49,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void readFiles(View view) {
+        try {
+            FileInputStream fin = openFileInput(FILE_INTERNAL);
+            int c;
+            String temp = "";
+            while((c = fin.read())!=-1){
+                temp += String.valueOf(((char) c));
+            }
+            txtDisplayData.setText(temp);
+            fin.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void writeFiles(View view) {
