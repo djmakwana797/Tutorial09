@@ -59,7 +59,8 @@
 
     <TextView
         android:id="@+id/txtData"
-        style="@style/textView"
+        android:textSize="14sp"
+        android:layout_margin="20dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

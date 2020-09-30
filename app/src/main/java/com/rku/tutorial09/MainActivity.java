@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText edtTextData;
     TextView txtDisplayData;
-    final String FILE_ASSETS ="employee.txt";
+    final String FILE_ASSETS ="data.json";
     final String FILE_INTERNAL ="help.txt";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
